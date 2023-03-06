@@ -19,15 +19,14 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
-                .requestMatchers("/registration").permitAll()
-                .requestMatchers("/allPosts").permitAll()
-                .requestMatchers("/post/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
+        http.authorizeHttpRequests(e -> e
+                        .requestMatchers("/registration").permitAll()
+                        .requestMatchers("/allPosts").permitAll()
+                        .requestMatchers("/post/**").permitAll()
+                        .anyRequest().authenticated())
                 .httpBasic()
                 .and()
-                .csrf().disable()
+                .csrf(e -> e.disable())
                 .userDetailsService(userDetailsService);
 
         return http.build();

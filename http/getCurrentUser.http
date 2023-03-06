@@ -1,0 +1,5 @@
+GET http://localhost:8080/getCurrentUser
+Accept: application/json
+Authorization: Basic egor qwerty
+
+###

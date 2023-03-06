@@ -1,0 +1,10 @@
+POST http://localhost:8080/addPost
+Content-Type: application/json
+Authorization: Basic egor qwerty
+
+{
+  "title": "Hello World!",
+  "post": "Hello World!"
+}
+
+###

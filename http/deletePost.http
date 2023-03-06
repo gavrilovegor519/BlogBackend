@@ -1,0 +1,5 @@
+DELETE http://localhost:8080/deletePost/1
+Accept: application/json
+Authorization: Basic egor qwerty
+
+###

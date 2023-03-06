@@ -1,0 +1,5 @@
+DELETE http://localhost:8080/deleteAccount
+Accept: application/json
+Authorization: Basic egor qwerty
+
+###

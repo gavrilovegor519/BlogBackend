@@ -32,6 +32,7 @@ public class PostsController {
     public Posts addPost(@RequestBody Posts posts, Authentication authentication) {
         Posts post = new Posts(posts.getTitle(), posts.getPost());
         post.setUsers(usersRepository.findByUsername(authentication.getName()));
+        post.setUsername(authentication.getName());
 
         return repository.save(post);
     }

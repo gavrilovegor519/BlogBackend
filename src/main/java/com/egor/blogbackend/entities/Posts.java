@@ -10,6 +10,7 @@ public class Posts {
     private @Id @GeneratedValue long id;
     private String title;
     private @Lob String post;
+    private String username;
 
     private @ManyToOne @JsonIgnore Users users;
 
@@ -53,17 +54,25 @@ public class Posts {
         this.users = users;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Posts posts = (Posts) o;
-        return id == posts.id && Objects.equals(title, posts.title) && Objects.equals(post, posts.post);
+        return id == posts.id && Objects.equals(title, posts.title) && Objects.equals(post, posts.post) && Objects.equals(username, posts.username) && Objects.equals(users, posts.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, post);
+        return Objects.hash(id, title, post, username, users);
     }
 
     @Override
@@ -72,6 +81,8 @@ public class Posts {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", post='" + post + '\'' +
+                ", username='" + username + '\'' +
+                ", users=" + users +
                 '}';
     }
 }
